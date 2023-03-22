@@ -5,27 +5,41 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe("Turns", function() {
-  
-    const card2 = new Card(2, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    const turn1 = new Turn("array", card2)
-
-
+  let turn1 = null;
+  let turn2 = null;
+  let card2 = {};
+    beforeEach(function() {
+     card2 = new Card(2, "What iterator would be good to use if you wanted to create a new array with modified elements?", ["forEach", "map", "find"], "map");
+     turn1 = new Turn("map", card2);
+     turn2 = new Turn("find", card2);
+  });
+   
   it("should have a method that returns the guess", function() {
-    assert.isString(turn1.usersGuess, "array")
+    assert.equal(turn1.returnGuess(), "map")
   })
+
   it("should have a method that retuns the Card", function() {
-    assert.isObject(turn1.card, card2);
+    assert.deepEqual(turn1.returnCard(), card2);
+  })
+
+  it("should have a method that returns true if correct answer", function() {
+    let guess = turn1.evaluateGuess();
+    assert.isTrue(guess, true);
+  })
+
+   it("should have a method that returns false if incorrect answer", function() {
+    let guessWrong = turn2.evaluateGuess();
+    assert.isFalse(guessWrong, false);
+  })
+
+  it("should return 'correct! if correct answer", function() {
+    let feedbackYes = turn1.giveFeedback(turn1.evaluateGuess());
+    assert.equal(feedbackYes, "correct!")
+  })
+
+  it("should return 'incorrect! if wrong answer", function() {
+    let feedbackNo = turn2.giveFeedback(turn2.evaluateGuess());
+    assert.equal(feedbackNo, "incorrect!")
   })
 })
 
-// beforeEach might be good here
-
-// returnGuess: method that returns the guess
-
-// returnCard: method that returns the Card
-
-// evaluateGuess: method that returns a boolean indicating if the user’s guess matches the correct answer on the card
-
-// giveFeedback: method that returns either ‘incorrect!’ or ‘correct!’ based on whether the guess is correct or not.,
-
-// Will write tests for each method and each possible outcome of each method evaluateGuess and giveFeedback. 

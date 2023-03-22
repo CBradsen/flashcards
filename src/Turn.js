@@ -13,10 +13,24 @@ returnGuess() {
 }
 
 returnCard() {
-  return this.card = card;
+  return this.card;
 }
 
-evaluateGuess
+evaluateGuess() {
+  if (this.usersGuess === this.card.correctAnswer) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+giveFeedback() {
+  if (this.evaluateGuess() === true) {
+    return "correct!"
+  } else {
+    return "incorrect!"
+  }
+}
 
 }
 
