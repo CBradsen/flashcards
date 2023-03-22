@@ -31,7 +31,6 @@ giveFeedback() {
     return "incorrect!"
   }
 }
-
 }
 
 module.exports = Turn;
