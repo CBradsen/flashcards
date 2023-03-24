@@ -5,7 +5,7 @@ class Round {
   constructor(deck, userGuess) {
   this.deck = deck;
   this.turns = 0;
-  this.currentCard = this.deck.cards[this.turns];
+  this.currentCard = this.deck.cards[0];
   this.incorrect = [];
   this.currentTurn;
   this.userGuess = userGuess;
@@ -16,17 +16,16 @@ class Round {
   }
 
   takeTurn(userGuess) {
-    console.log(this.currentCard)
-    this.turns += 1;
+  
     this.currentTurn = new Turn(userGuess, this.currentCard);
     this.currentTurn.evaluateGuess();
     if(!this.currentTurn.evaluateGuess()) {
        this.incorrect.push(this.currentTurn.card.id)
     }
    
-     console.log(this.currentTurn.giveFeedback());
-     console.log(this.currentCard)
-     
+    this.turns += 1;
+    this.currentCard = this.deck.cards[this.turns];
+    
      return this.currentTurn.giveFeedback();
     } 
   };

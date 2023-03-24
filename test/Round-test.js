@@ -43,7 +43,7 @@ describe("Round", function() {
 
   deck = new Deck([card1, card2, card3]);
   round = new Round(deck);
-  guess = new Turn();
+  // guess = new Turn();
   });
 
     it("should update turns count when a guess is made", function() {
@@ -62,7 +62,7 @@ describe("Round", function() {
     });
 
     it("should make the next card in the array the current card", function() {
-      round.takeTurn();
+     
       assert.deepEqual(round.currentCard, card1);
       round.takeTurn();
       assert.deepEqual(round.currentCard, card2);
