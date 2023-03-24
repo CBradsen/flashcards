@@ -5,6 +5,7 @@ class Deck {
   constructor(cards) {
     this.cards = cards;
     
+    
   }
   countCards() {
     let cardNumber = this.cards.length;
