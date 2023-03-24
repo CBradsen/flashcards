@@ -3,10 +3,12 @@
 ## Fork This Repo
 
 On the top right corner of this page, click the **Fork** button.
+Clone down to your machine.
+move into the directory. 
 
 ## Setup
 
-i. Abstract
+## Abstract
 
 Goals and Objectives
 Contribute code to an partially constructed object-oriented application
